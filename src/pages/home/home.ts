@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, IonicPage} from 'ionic-angular';
+import { NavController} from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
@@ -11,8 +11,8 @@ export class HomePage {
 
   }
 
-  showCategoria(){
-  
+  goToCategorias(){
+    this.navCtrl.push('CategoriasPage');
   }
 
 }
