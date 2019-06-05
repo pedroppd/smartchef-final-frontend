@@ -10,6 +10,8 @@
       <img src="{{bucketUrl}}/catt{{item.id}}.jpg" />
       
       <div class="card-title">{{item.nome}}</div>
+
+      <button ion-button block outline (click)="goToProdutos(item.id)">Produtos</button>
     </ion-card>
   
   </ion-list>

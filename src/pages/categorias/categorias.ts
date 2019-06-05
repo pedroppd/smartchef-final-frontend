@@ -28,4 +28,9 @@ export class CategoriasPage {
       }, error =>{});
   }
 
+ 
+  goToProdutos(id_categoria: string){
+    this.navCtrl.push('ProdutosPage', {id_categoria:id_categoria});
+  }
+
 }

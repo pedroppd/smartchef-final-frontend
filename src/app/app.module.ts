@@ -9,6 +9,7 @@ import { HomePage } from '../pages/home/home';
 import { CategoriaService } from '../pages/services/models/categoria.service';
 import { HttpClientModule} from '@angular/common/http';
 import { ErrorInterceptorProvider } from '../interceptors/error-interceptor';
+import { ProdutoService } from '../pages/services/models/produto.service';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { ErrorInterceptorProvider } from '../interceptors/error-interceptor';
     SplashScreen,
     CategoriaService,
     ErrorInterceptorProvider,
+    ProdutoService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
