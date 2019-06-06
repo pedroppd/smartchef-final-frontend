@@ -10,6 +10,8 @@ import { CategoriaService } from '../pages/services/models/categoria.service';
 import { HttpClientModule} from '@angular/common/http';
 import { ErrorInterceptorProvider } from '../interceptors/error-interceptor';
 import { ProdutoService } from '../pages/services/models/produto.service';
+import { CartService } from '../pages/services/models/cart.service';
+import { StorageService } from '../pages/services/storage.service';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { ProdutoService } from '../pages/services/models/produto.service';
     StatusBar,
     SplashScreen,
     CategoriaService,
+    CartService,
+    StorageService,
     ErrorInterceptorProvider,
     ProdutoService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
