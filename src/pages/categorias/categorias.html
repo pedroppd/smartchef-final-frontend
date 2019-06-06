@@ -1,19 +1,24 @@
 <ion-header>
-    <ion-navbar>
-      <ion-title>Categorias</ion-title>
-    </ion-navbar>
-  </ion-header>
+  <ion-navbar>
+    <ion-title>Categorias</ion-title>
+  </ion-navbar>
+</ion-header>
 <ion-content padding class="card-background-page">
+  <ion-fab top right edge>
+    <button navPush="CartPage" ion-fab mini>
+      <ion-icon name="cart"></ion-icon>
+    </button>
+  </ion-fab>
   <ion-list>
-    
+
     <ion-card *ngFor="let item of items">
       <img src="{{bucketUrl}}/catt{{item.id}}.jpg" />
-      
+
       <div class="card-title">{{item.nome}}</div>
 
       <button ion-button block outline (click)="goToProdutos(item.id)">Produtos</button>
     </ion-card>
-  
+
   </ion-list>
 
 </ion-content>

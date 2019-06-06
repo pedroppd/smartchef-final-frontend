@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core";
 import { STORAGE_KEYS } from "../config/storage_keys.config";
-import { API_CONFIG } from "../config/api.config";
 import { Cart } from "../model/cart";
 
 @Injectable()

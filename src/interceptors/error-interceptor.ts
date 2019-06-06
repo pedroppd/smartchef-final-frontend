@@ -2,7 +2,6 @@ import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HTTP_INTERCEPTORS
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs/Rx";
 import { AlertController } from "ionic-angular";
-import { Message } from "@angular/compiler/src/i18n/i18n_ast";
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
