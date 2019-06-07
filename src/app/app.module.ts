@@ -12,6 +12,9 @@ import { ErrorInterceptorProvider } from '../interceptors/error-interceptor';
 import { ProdutoService } from '../pages/services/models/produto.service';
 import { CartService } from '../pages/services/models/cart.service';
 import { StorageService } from '../pages/services/storage.service';
+import { CidadeService } from '../pages/services/models/cidade.service';
+import { EstadoService } from '../pages/services/models/estado.service';
+import { ClienteService } from '../pages/services/models/cliente.service';
 
 
 @NgModule({
@@ -37,6 +40,9 @@ import { StorageService } from '../pages/services/storage.service';
     SplashScreen,
     CategoriaService,
     CartService,
+    CidadeService,
+    EstadoService,
+    ClienteService,
     StorageService,
     ErrorInterceptorProvider,
     ProdutoService,

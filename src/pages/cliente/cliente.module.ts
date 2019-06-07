@@ -8,6 +8,6 @@ import { ClientePage } from './cliente';
   ],
   imports: [
     IonicPageModule.forChild(ClientePage),
-  ],
+  ]
 })
 export class ClientePageModule {}
