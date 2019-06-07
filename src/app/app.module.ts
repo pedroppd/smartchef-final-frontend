@@ -12,14 +12,14 @@ import { ErrorInterceptorProvider } from '../interceptors/error-interceptor';
 import { ProdutoService } from '../pages/services/models/produto.service';
 import { CartService } from '../pages/services/models/cart.service';
 import { StorageService } from '../pages/services/storage.service';
-import { CartPage } from '../pages/cart/cart';
+
 
 @NgModule({
   declarations: [
     MyApp,
     TabsPage,
-    HomePage,
-    CartPage
+    HomePage
+   
   ],
   imports: [
     BrowserModule,
@@ -30,8 +30,7 @@ import { CartPage } from '../pages/cart/cart';
   entryComponents: [
     MyApp,
     TabsPage,
-    HomePage,
-    CartPage
+    HomePage
   ],
   providers: [
     StatusBar,
