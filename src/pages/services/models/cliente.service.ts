@@ -3,6 +3,7 @@ import { StorageService } from "../storage.service";
 import { API_CONFIG } from "../../config/api.config";
 import { Injectable } from "@angular/core";
 import { ClienteDTO } from "../../model/cliente.dto";
+import { Observable } from "rxjs";
 
 @Injectable()
 export class ClienteService {
@@ -16,8 +17,8 @@ export class ClienteService {
         return this.http.get(`${API_CONFIG.baseUrl}/clientes/${id}`);
     }
     
-    findByEmail(email: string) {
-        return this.http.get(`${API_CONFIG.baseUrl}/clientes/email?value=${email}`);
+    findByEmail(email: string): Observable<ClienteDTO> {
+        return this.http.get<ClienteDTO>(`${API_CONFIG.baseUrl}/clientes/email?value=${email}`);
     }
 
 

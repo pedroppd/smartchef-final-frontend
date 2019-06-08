@@ -6,6 +6,8 @@ import { EstadoService } from '../services/models/estado.service';
 import { ClienteService } from '../services/models/cliente.service';
 import { CidadeDTO } from '../model/cidade.dto';
 import { EstadoDTO } from '../model/estado.dto';
+import { PedidoDTO } from '../model/pedido.dto';
+import { CartService } from '../services/models/cart.service';
 
 
 @IonicPage()
@@ -15,18 +17,20 @@ import { EstadoDTO } from '../model/estado.dto';
 })
 export class ClientePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder, public cidadeService: CidadeService, public estadoService: EstadoService, public clienteService: ClienteService) {
+  
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder, public cidadeService: CidadeService, public estadoService: EstadoService, public clienteService: ClienteService, public cartService: CartService) {
     this.formGroup = this.formBuilder.group({
-      nome: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(120)]],
-      email: ['', [Validators.required, Validators.email]],
-      cpf: ['', [Validators.required, Validators.minLength(11)]],
-      numero: ['', []],
-      complemento: ['', []],
-      bairro: ['', []],
-      cep: ['', [Validators.required]],
-      telefone1: ['', [Validators.required]],
-      telefone2: ['', [Validators.required]],
-      telefone3: ['', [Validators.required]],
+      nome: ['Pedro Dantas', [Validators.required, Validators.minLength(5), Validators.maxLength(120)]],
+      email: ['lucienispdantas@gmail.com', [Validators.required, Validators.email]],
+      cpf: ['11343729628', [Validators.required, Validators.minLength(11)]],
+      numero: ['288', []],
+      complemento: ['casa 1', []],
+      bairro: ['barro vermelho', []],
+      cep: ['24416060', [Validators.required]],
+      telefone1: ['988728190', [Validators.required]],
+      telefone2: ['975111058', [Validators.required]],
+      telefone3: ['926287244', [Validators.required]],
       cidadeId: [null, [Validators.required]],
       estadoId: [null, [Validators.required]]
 
@@ -35,6 +39,8 @@ export class ClientePage {
   formGroup: FormGroup
   estados: EstadoDTO[];
   cidades: CidadeDTO[];
+  item: any;
+  pedido: PedidoDTO;
 
   ionViewDidLoad() {
     this.estadoService.findAll()
@@ -56,16 +62,28 @@ export class ClientePage {
         error => { });
   }
 
-  signupUser() {
-    
-    this.clienteService.insert(this.formGroup.value)
-      .subscribe(response => {
-        //maybe you can change here for passed for another page
-      },
-        error => { });
-        
-      
+  findByEmail(){
+
   }
 
-  
+  signupUser() {
+    this.clienteService.insert(this.formGroup.value)
+      .subscribe(response => {
+      
+       let cart = this.cartService.getCart();
+       let email = this.formGroup.controls.email;
+       this.pedido = {
+         cliente: {email: email['_pendingValue']},
+         endereco: null,
+         pagamento: null,
+         items: cart.items.map(x => {return {quantidade: x.quantidade, produto: {id:x.produto.id}}})     
+       }
+
+       
+       console.log(this.pedido);
+      },
+        error => { });
+  }
+
+
 }
