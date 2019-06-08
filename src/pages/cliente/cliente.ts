@@ -57,10 +57,15 @@ export class ClientePage {
   }
 
   signupUser() {
+    
     this.clienteService.insert(this.formGroup.value)
       .subscribe(response => {
         //maybe you can change here for passed for another page
       },
         error => { });
+        
+      
   }
+
+  
 }
