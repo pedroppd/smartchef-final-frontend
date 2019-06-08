@@ -76,11 +76,10 @@ export class ClientePage {
          cliente: {email: email['_pendingValue']},
          endereco: null,
          pagamento: null,
+         numeroDaMesas: null,
          items: cart.items.map(x => {return {quantidade: x.quantidade, produto: {id:x.produto.id}}})     
        }
-
-       
-       console.log(this.pedido);
+      this.navCtrl.push('PaymentPage', {pedido: this.pedido});
       },
         error => { });
   }
