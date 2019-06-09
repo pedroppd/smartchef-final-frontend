@@ -22,15 +22,15 @@ export class ClientePage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder, public cidadeService: CidadeService, public estadoService: EstadoService, public clienteService: ClienteService, public cartService: CartService) {
     this.formGroup = this.formBuilder.group({
       nome: ['Pedro Dantas', [Validators.required, Validators.minLength(5), Validators.maxLength(120)]],
-      email: ['lucienispdantas@gmail.com', [Validators.required, Validators.email]],
+      email: ['teste@gmail.com', [Validators.required, Validators.email]],
       cpf: ['11343729628', [Validators.required, Validators.minLength(11)]],
       numero: ['288', []],
       complemento: ['casa 1', []],
-      bairro: ['barro vermelho', []],
+      bairro: ['Teste Teste', []],
       cep: ['24416060', [Validators.required]],
-      telefone1: ['988728190', [Validators.required]],
-      telefone2: ['975111058', [Validators.required]],
-      telefone3: ['926287244', [Validators.required]],
+      telefone1: ['995632563', [Validators.required]],
+      telefone2: ['986363253', [Validators.required]],
+      telefone3: ['956325365', [Validators.required]],
       cidadeId: [null, [Validators.required]],
       estadoId: [null, [Validators.required]]
 
