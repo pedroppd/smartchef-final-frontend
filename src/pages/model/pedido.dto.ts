@@ -6,6 +6,6 @@ export interface PedidoDTO{
     cliente: any;
     endereco?: RefDTO;
     pagamento: PagamentoDTO;
-    numeroDaMesas?: any;
+    numeroDaMesas: any;
     items: ItemPedidoDTO[];
 }

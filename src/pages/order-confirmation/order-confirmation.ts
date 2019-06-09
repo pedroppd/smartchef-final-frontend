@@ -5,6 +5,7 @@ import { CartItem } from '../model/cart-item';
 import { CartService } from '../services/models/cart.service';
 import { ClienteDTO } from '../model/cliente.dto';
 import { ClienteService } from '../services/models/cliente.service';
+import { PedidoService } from '../services/models/pedido.service';
 
 @IonicPage()
 @Component({
@@ -16,8 +17,9 @@ export class OrderConfirmationPage {
   pedido: PedidoDTO;
   cartItems: CartItem[];
   cliente: ClienteDTO;
+  codpedido: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public cartService: CartService, public clienteService: ClienteService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public cartService: CartService, public clienteService: ClienteService, public pedidoService: PedidoService) {
     this.pedido = this.navParams.get('pedido');
   }
 
@@ -28,12 +30,37 @@ export class OrderConfirmationPage {
       .subscribe(response => {
         this.cliente = response as ClienteDTO;
       }, error => {
-        
+
       });
   }
 
-  total(){
+  total() {
     return this.cartService.total();
+  }
+
+  checkout() {
+    this.pedidoService.insert(this.pedido)
+      .subscribe(response => {
+        this.cartService.createOrClearCart();
+       this.codpedido = this.extractId(response.headers.get('location'));
+
+      }, error => {
+        console.log(error);
+      });
+  }
+
+
+  back() {
+    this.navCtrl.setRoot('CartPage');
+  }
+
+  home() {
+    this.navCtrl.setRoot('CategoriasPage');
+  }
+
+  private extractId(location: string): string {
+    let position = location.lastIndexOf('/');
+    return location.substring(position + 1, location.length);
   }
 
 }
