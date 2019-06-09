@@ -32,6 +32,7 @@ export class PaymentPage {
     this.pedido.pagamento = this.formGroup.value;
     this.pedido.numeroDaMesas = this.formGroup.controls.numeroMesa['_pendingValue'];
     console.log(this.pedido);
+    this.navCtrl.setRoot('OrderConfirmationPage', {pedido: this.pedido});
   }
 
 }
